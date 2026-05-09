@@ -72,11 +72,15 @@ module Net
         def add(key_file)
           key_files.push(File.expand_path(key_file)).uniq!
           self
+        rescue ArgumentError
+          self
         end
 
         # Add the given keycert_file to the list of keycert files that will be used.
         def add_keycert(keycert_file)
           keycert_files.push(File.expand_path(keycert_file)).uniq!
+          self
+        rescue ArgumentError
           self
         end
 

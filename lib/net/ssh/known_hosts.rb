@@ -160,6 +160,8 @@ module Net
       # file. The path is expanded file File.expand_path.
       def initialize(source)
         @source = File.expand_path(source)
+      rescue ArgumentError
+        @source = source
       end
 
       # Returns an array of all keys that are known to be associatd with the
